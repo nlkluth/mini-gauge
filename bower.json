@@ -1,0 +1,27 @@
+{
+  "name": "mini-gauge",
+  "version": "0.0.0",
+  "authors": [
+    "Anonymous nlkluth@gmail.com"
+  ],
+  "description": "Display percentages in an svg.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "seed"
+  ],
+  "main": "mini-gauge.html",
+  "license": "MIT",
+  "homepage": "https://github.com/nlkluth/mini-gauge/",
+  "ignore": [
+    "/.*",
+    "/tests/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.4.1"
+  },
+  "devDependencies": {
+    "web-component-tester": "Polymer/web-component-tester#^0.7.3"
+  }
+}
