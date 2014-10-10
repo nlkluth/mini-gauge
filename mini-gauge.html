@@ -10,7 +10,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../core-tooltip/core-tooltip.html">
 
-<polymer-element name="mini-gauge" attributes="tooltip value max delay transition">
+<polymer-element name="mini-gauge" attributes="tooltip value max delay transition type path">
   <template>
     <link rel="stylesheet" href="mini-gauge.css">
 
@@ -33,9 +33,20 @@
     delay: 0,
     max: 200,
     transition: null,
+    type: 'circle',
+
+    observe: {
+      'type': 'updatePath',
+      'path': 'updatePath'
+    },
 
     ready: function() {
+      this.updatePath();
       this.draw();
+    },
+
+    updatePath: function() {
+
     },
 
     draw: function() {
