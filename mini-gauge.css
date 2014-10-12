@@ -23,12 +23,10 @@ polyfill-next-selector { content: ':host > h2'; }
   left: -4.3%;
 }
 
-polyfill-next-selector { content: ':host > .mini-graph'; }
-::content .mini-graph {
+.mini-graph {
   text-align: center;
 }
-polyfill-next-selector { content: ':host > .mini-graph path'; }
-::content .mini-graph path {
+.mini-graph path {
   fill: pink;
   stroke: deeppink;
   stroke-dashoffset: 100;
