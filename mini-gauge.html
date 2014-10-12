@@ -9,6 +9,7 @@
 -->
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../core-tooltip/core-tooltip.html">
+<link rel="import" href="../count-scroll/count-scroll.html">
 
 <polymer-element name="mini-gauge" attributes="tooltip value max delay transition type path">
   <template>
@@ -19,6 +20,8 @@
         <svg width="70" height="70">
           <path id="path" d="m2.619049,35c0,-17.890028 14.490923,-32.38095 32.380951,-32.38095c17.890026,0 32.380951,14.490922 32.380951,32.38095c0,17.89003 -14.490925,32.380951 -32.380951,32.380951c-17.890028,0 -32.380951,-14.490921 -32.380951,-32.380951z"/>
         </svg>
+
+        <count-scroll value="{{value}}" delay="{{delay}}" max="{{max}}"></count-scroll>
         <content select="h2"></content>
         <content class="label"></content>
       </div>
