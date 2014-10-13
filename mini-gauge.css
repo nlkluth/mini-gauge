@@ -27,7 +27,7 @@ polyfill-next-selector { content: ':host > h2'; }
   text-align: center;
 }
 .mini-graph path {
-  fill: pink;
+  fill: none;
   stroke: deeppink;
   stroke-dashoffset: 100;
   stroke-dasharray: 100 100;
