@@ -1,17 +1,8 @@
-<!--
-    @license
-    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
-    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-    Code distributed by Google as part of the polymer project is also
-    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../core-tooltip/core-tooltip.html">
 <link rel="import" href="../count-scroll/count-scroll.html">
 
-<polymer-element name="mini-gauge" attributes="tooltip value max delay transition type path">
+<polymer-element name="mini-gauge" attributes="tooltip value max delay transition type path percent">
   <template>
     <link rel="stylesheet" href="mini-gauge.css">
 
@@ -21,7 +12,10 @@
           <path id="path" d="m2.619049,35c0,-17.890028 14.490923,-32.38095 32.380951,-32.38095c17.890026,0 32.380951,14.490922 32.380951,32.38095c0,17.89003 -14.490925,32.380951 -32.380951,32.380951c-17.890028,0 -32.380951,-14.490921 -32.380951,-32.380951z"/>
         </svg>
 
-        <count-scroll value="{{value}}" delay="{{delay}}" max="{{max}}"></count-scroll>
+        <count-scroll value="{{value}}" delay="{{delay}}"
+          max="{{max}}" percent="{{percent}}">
+        </count-scroll>
+
         <content select="h2"></content>
         <content class="label"></content>
       </div>
@@ -37,6 +31,7 @@
     max: 200,
     transition: null,
     type: 'circle',
+    percent: false,
 
     observe: {
       'type': 'updatePath',
