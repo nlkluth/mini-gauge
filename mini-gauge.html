@@ -2,7 +2,7 @@
 <link rel="import" href="../core-tooltip/core-tooltip.html">
 <link rel="import" href="../count-scroll/count-scroll.html">
 
-<polymer-element name="mini-gauge" attributes="tooltip value max delay transition type path percent">
+<polymer-element name="mini-gauge" attributes="tooltip value max transition type path percent delay">
   <template>
     <link rel="stylesheet" href="mini-gauge.css">
 
@@ -12,8 +12,8 @@
           <path id="path" d="m2.619049,35c0,-17.890028 14.490923,-32.38095 32.380951,-32.38095c17.890026,0 32.380951,14.490922 32.380951,32.38095c0,17.89003 -14.490925,32.380951 -32.380951,32.380951c-17.890028,0 -32.380951,-14.490921 -32.380951,-32.380951z"/>
         </svg>
 
-        <count-scroll value="{{value}}" delay="{{delay}}"
-          max="{{max}}" percent="{{percent}}">
+        <count-scroll value="{{value}}" max="{{max}}"
+          percent="{{percent}}">
         </count-scroll>
 
         <content select="h2"></content>
@@ -27,27 +27,30 @@
   Polymer({
     tooltip: null,
     value: null,
-    delay: 0,
     max: 200,
     transition: null,
     type: 'circle',
     percent: false,
+    delay: 0,
 
     observe: {
       'type': 'updatePath',
-      'path': 'updatePath'
+      'path': 'updatePath',
+      'value': 'draw'
     },
 
     ready: function() {
       this.updatePath();
+      this.setValues();
       this.draw();
     },
 
     updatePath: function() {
-
+      // set a custom path if passed in, or set a predefined path from sample-icons if chosen, else default to 'circle'
     },
 
-    draw: function() {
+    setValues: function() {
+      // set lenght and styles to remain constant as `value` (potentially) changes
       this.length = this.$.path.getTotalLength();
       this.$.path.style.strokeDashoffset = this.length;
       this.$.path.style.strokeDasharray = this.length + ' ' + this.length;
@@ -55,14 +58,13 @@
       if (this.transition) {
         this.$.path.style.transition = this.$.path.style.WebkitTransition = this.transition;
       }
-
-      setTimeout(function() {
-        this.setValue();
-      }.bind(this), this.delay);
     },
 
-    setValue: function() {
-      this.$.path.style.strokeDashoffset = (this.length - (this.length * (this.value/this.max)));
+    draw: function() {
+      // set the dashoffset as a percentage of the total length based off the percentage of `value` and `max`
+      setTimeout(function() {
+        this.$.path.style.strokeDashoffset = (this.length - (this.length * (this.value/this.max)));
+      }.bind(this), this.delay);
     }
   });
 
