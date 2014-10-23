@@ -36,3 +36,9 @@ polyfill-next-selector { content: ':host > h2'; }
   -webkit-transition: stroke-dashoffset 0.3s;
           transition: stroke-dashoffset 0.3s;
 }
+
+.mini-gauge #gauge {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 6;
+}
