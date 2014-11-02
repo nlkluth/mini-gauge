@@ -43,6 +43,7 @@ polyfill-next-selector { content: ':host > h2'; }
   stroke-width: 6;
 }
 
-.mini-gauge .icon {
+.mini-gauge img {
   border-radius: 35px;
+  width: 70px;
 }
