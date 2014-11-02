@@ -42,8 +42,3 @@ polyfill-next-selector { content: ':host > h2'; }
   stroke: #ccc;
   stroke-width: 6;
 }
-
-.mini-gauge img {
-  border-radius: 35px;
-  width: 70px;
-}
